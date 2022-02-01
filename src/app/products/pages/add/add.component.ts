@@ -9,6 +9,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AddComponent {
 
+  message: string = 'Este campo es requerido';
+  color: string = 'blue';
+
   myForm: FormGroup = this.formBuilder.group({
     name: ['', Validators.required]
   });
@@ -17,5 +20,13 @@ export class AddComponent {
 
   isValid(field: string) {
     return this.myForm.get(field)?.valid || false;
+  }
+
+  changeMessage(): void {
+    this.message = 'Por favor complete este campo';
+  }
+
+  changeColor(): void {
+    this.color = 'red';
   }
 }

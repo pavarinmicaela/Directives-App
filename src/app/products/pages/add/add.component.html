@@ -12,18 +12,21 @@
         </div>
 
         <div class="col-auto">
-            <span 
-                *ngIf="!isValid('name')"
+            <span
                 errorMsg
-                color="blue"
-                message="Este campo es requerido">
+                [message]="message"
+                [color]="color"
+                [valid]="isValid('name')">
             </span>
         </div>
     </div>
 
     <div class="row mt-3">
-        <div class="col">
-            <button class="btn btn-primary">Guardar</button>
+        <div class="col-auto">
+            <button class="btn btn-primary" (click)="changeMessage()">Cambiar mensaje</button>
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-primary" (click)="changeColor()">Cambiar color</button>
         </div>
     </div>
 </form>
